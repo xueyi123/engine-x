@@ -3,11 +3,14 @@ package com.iih5.engine.clusterkit;
 import com.iih5.netbox.session.ISession;
 import com.iih5.netbox.session.SessionManager;
 import com.iih5.route.client.Handler;
+import io.netty.buffer.ByteBuf;
+import io.netty.buffer.Unpooled;
 import io.netty.channel.Channel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 
+import java.io.UnsupportedEncodingException;
 import java.util.Collection;
 import java.util.Timer;
 
@@ -47,8 +50,13 @@ public class SubHandler extends Handler {
     }
 
     @Override
-    public void onMessage(byte[] channel, byte[] message) {
-        //TODO
+    public void onMessage(String channel, byte[] message) {
+        logger.info(channel+"====="+message.length);
+        ByteBuf byteBuf = Unpooled.copiedBuffer(message);
+
+        System.out.println(byteBuf.readInt());
+        System.out.println(byteBuf.readShort());
+        System.out.println(byteBuf.readByte());
     }
 
     void userMessageHandle(String message){

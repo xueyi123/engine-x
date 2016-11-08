@@ -11,6 +11,8 @@ import com.iih5.netbox.codec.ws.WsTextForDefaultJsonDecoder;
 import com.iih5.netbox.codec.ws.WsTextForDefaultJsonEncoder;
 import com.iih5.route.client.Client;
 import com.iih5.route.client.ProtoType;
+import io.netty.buffer.ByteBuf;
+import io.netty.buffer.Unpooled;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -27,6 +29,12 @@ public class Main {
         SpringContext.run();
         subBus();
         startEngine();
+//        Thread.sleep(3000);
+//        ByteBuf byteBuf = Unpooled.buffer();
+//        byteBuf.writeInt(10045);
+//        byteBuf.writeShort(22222);
+//        byteBuf.writeByte(10);
+//        busClient.publish(KitConstant.BROADCAST,byteBuf.array());
     }
     //处理输入命令
     static void mainCmd(String[] args){
