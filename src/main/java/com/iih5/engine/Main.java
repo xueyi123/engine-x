@@ -10,6 +10,7 @@ import com.iih5.netbox.NetBoxEngineSetting;
 import com.iih5.netbox.codec.ws.WsTextForDefaultJsonDecoder;
 import com.iih5.netbox.codec.ws.WsTextForDefaultJsonEncoder;
 import com.iih5.route.client.Client;
+import com.iih5.route.client.ProtoType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -52,6 +53,7 @@ public class Main {
         ClusterManger kit = new ClusterManger();
         kit.registerNode(PORT);
         busClient = new Client(new SubHandler(),KitConstant.CMD,KitConstant.BROADCAST,KitConstant.CLUSTER_HOST_NODE_ID);
+        busClient.setProtoType(ProtoType.BINARY);
         busClient.setServerPwd("KY^KD($^%RFGKD%^FJGJPO(#^*");
         String str = PropertyConf.get("CLUSTER.URL");
         String[] arr = str.split(";");
