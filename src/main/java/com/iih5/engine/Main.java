@@ -52,6 +52,7 @@ public class Main {
         ClusterManger kit = new ClusterManger();
         kit.registerNode(PORT);
         busClient = new Client(new SubHandler(),KitConstant.CMD,KitConstant.BROADCAST,KitConstant.CLUSTER_HOST_NODE_ID);
+        busClient.setServerPwd("KY^KD($^%RFGKD%^FJGJPO(#^*");
         String str = PropertyConf.get("CLUSTER.URL");
         String[] arr = str.split(";");
         LinkedList<String> urls = new LinkedList();
